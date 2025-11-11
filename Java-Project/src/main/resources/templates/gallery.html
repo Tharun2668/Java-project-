@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car & Bike Gallery</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 Car & Bike Gallery 🏍️</h1>
+        
+        <!-- Cars Section -->
+        <div class="section">
+            <h2>Cars</h2>
+            <div class="gallery">
+                <div class="vehicle-card" th:each="car : ${cars}">
+                    <img th:src="${car.imagePath}" th:alt="${car.name}">
+                    <h3 th:text="${car.name}">Car Name</h3>
+                    <span class="type-badge car-badge" th:text="${car.type}">Car</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bikes Section -->
+        <div class="section">
+            <h2>Bikes</h2>
+            <div class="gallery">
+                <div class="vehicle-card" th:each="bike : ${bikes}">
+                    <img th:src="${bike.imagePath}" th:alt="${bike.name}">
+                    <h3 th:text="${bike.name}">Bike Name</h3>
+                    <span class="type-badge bike-badge" th:text="${bike.type}">Bike</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
